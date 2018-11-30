@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
+import './media.css'
 
 class Media extends Component {
     render() {
         return (
-            <div>
-                <div>
+            <div className='Media'>
+                <div className='Media-cover'>
                     <img 
-                        src=""
-                        alt=""
+                        className='Media-image'
+                        src={this.props.image}
+                        alt={this.props.title}
                         width={260}
                         height={160}
                     />
-                    <h3> Por qué aprender ReactJS </h3>
-                    <p> Andres Aguilar </p>
+                    <h3 className='Media-title'> {this.props.title} </h3>
+                    <p className='Media-author'> {this.props.author} </p>
                 </div>
             </div>
         )
