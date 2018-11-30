@@ -3,15 +3,35 @@ import PropTypes from 'prop-types'
 
 import './media.css'
 
+/*
+    constructor:        Método constructor del compoenente, se llama antes de montar el componente
+    componentWillMount: Método llamado justo antes de montar el componente
+    render:             Método que contiene todos los elementos a renderizar (JSX)
+    componentDidMount:  Método llamado después de montar el elemento, solo se llama una vez,
+                        aquí se enlazan los eventos
+    compoenentWillReceiveProps: Método llamado al recibir nuevas propiedades
+    shuldComponentUpdate: Método que condiciona el rerenderizado del componente
+    componentWillRender:  Método llamado para re renderizar el componenete (llama al método render)
+    componentWillUnmount: Método que se llama antes de que el componenete sea desmontado
+    componentDidCatch:    Método que se invoca al ocurrir un error al renderizar el componente o alguno 
+                          de sus componentes hijos
+*/
+
 class Media extends Component {
     /*constructor(props) {
         super(props)
         // Enlazar el handleClick con la clase (conservar el contexto de la clase)
-        this.handleClick = this.handleClick.bind(this)
+        this.state = {
+            author: props.author
+        }
     }*/
+    state = {
+        author: this.props.author
+    }
     handleClick = (evt) => {
-        console.log('Hola mundo')
-        console.log(this.props.title)
+        this.setState({
+            author: 'Yosh'
+        })
     }
     render() {
         return (
@@ -25,7 +45,7 @@ class Media extends Component {
                         height={160}
                     />
                     <h3 className='Media-title'> {this.props.title} </h3>
-                    <p className='Media-author'> {this.props.author} </p>
+                    <p className='Media-author'> {this.state.author} </p>
                 </div>
             </div>
         )
