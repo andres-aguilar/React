@@ -8,7 +8,7 @@ function Platlist(props) {
         <div className='Playlist'>
             { 
                 props.playlist.map( item => {
-                    return <Media key={item.id} {...item}/>
+                    return <Media key={item.id} handleClick={props.handleOpenModal} {...item}/>
                 } )
             }
         </div>
