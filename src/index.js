@@ -10,9 +10,12 @@ import * as serviceWorker from './serviceWorker'
 // data
 import data from './api.json'
 
+
+const homeContainer = document.getElementById('root')
+
 ReactDOM.render(
     <Home data={data}/>,
-    document.getElementById('root')
+    homeContainer
 )
 
 // If you want your app to work offline and load faster, you can change
