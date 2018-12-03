@@ -5,7 +5,7 @@ import data from './api'
 //import App from './App'
 
 // Custom components
-import Playlist from './components/playlist'
+import Playlist from './playlist/components/playlist'
 
 
 import * as serviceWorker from './serviceWorker'
