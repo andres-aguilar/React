@@ -1,17 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import data from './api'
-//import App from './App'
 
 // Custom components
-import Playlist from './playlist/components/playlist'
-
+import Home from './pages/containers/home'
 
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
-    <Playlist data={data}/>, 
+    <Home/>,
     document.getElementById('root')
 )
 
