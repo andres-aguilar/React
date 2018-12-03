@@ -1,16 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
+import data from './api'
 //import App from './App'
 
 // Custom components
-import Media from './components/media'
+import Playlist from './components/playlist'
 
 
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
-    <Media title='Qué es responsive design?' author='Andrés Aguilar' image='./images/covers/responsive.jpg'/>, 
+    <Playlist data={data}/>, 
     document.getElementById('root')
 )
 

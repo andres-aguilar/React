@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 import './media.css'
@@ -17,7 +17,7 @@ import './media.css'
                           de sus componentes hijos
 */
 
-class Media extends Component {
+class Media extends PureComponent {
     /*constructor(props) {
         super(props)
         // Enlazar el handleClick con la clase (conservar el contexto de la clase)
@@ -39,13 +39,13 @@ class Media extends Component {
                 <div className='Media-cover'>
                     <img 
                         className='Media-image'
-                        src={this.props.image}
+                        src={this.props.cover}
                         alt={this.props.title}
                         width={260}
                         height={160}
                     />
                     <h3 className='Media-title'> {this.props.title} </h3>
-                    <p className='Media-author'> {this.state.author} </p>
+                    <p className='Media-author'> {this.props.author} </p>
                 </div>
             </div>
         )
@@ -53,7 +53,7 @@ class Media extends Component {
 }
 
 Media.propTypes = {
-    image: PropTypes.string.isRequired,
+    cover: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     // type: PropTypes.oneOf(['video', 'audio'])
