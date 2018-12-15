@@ -5,32 +5,31 @@ import Categories from '../../categories/components/categories'
 import Related from '../../pages/components/related'
 import ModalContainer from '../../widgets/containers/modal-container'
 import Modal from '../../widgets/components/modal'
+import HandleError from '../../error/containers/handle-error'
 
 class Home extends Component {
-    state = { modalVisible: false }
+    state = { modalVisible: false, handreError: false }
     handleOpenModal = () => {
         this.setState({ modalVisible: true })
     }
-    handleCloseModal = (event) => {
-        this.setState ({
-            modalVisible: false
-        })
-    }
+
     render() {
         return (
-            <HomeLayout>
-                <Related />
-                <Categories categories={this.props.data.categories} handleOpenModal={this.handleOpenModal}/>
-                { this.state.modalVisible && 
-                    <ModalContainer>
-                        <Modal
-                            handleClick={this.handleCloseModal}
-                        >
-                            <h1> Desde el modal </h1>
-                        </Modal>
-                    </ModalContainer>
-                }
-            </HomeLayout>
+            <HandleError>
+                <HomeLayout>
+                    <Related />
+                    <Categories categories={this.props.data.categories} handleOpenModal={this.handleOpenModal}/>
+                    { this.state.modalVisible && 
+                        <ModalContainer>
+                            <Modal
+                                handleClick={this.handleCloseModal}
+                            >
+                                <h1> Desde el modal </h1>
+                            </Modal>
+                        </ModalContainer>
+                    }
+                </HomeLayout>
+            </HandleError>
         )
     }
 }
