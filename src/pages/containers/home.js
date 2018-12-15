@@ -7,10 +7,16 @@ import ModalContainer from '../../widgets/containers/modal-container'
 import Modal from '../../widgets/components/modal'
 import HandleError from '../../error/containers/handle-error'
 
+import VideoPlayer from '../../player/containers/video-player'
+
 class Home extends Component {
     state = { modalVisible: false, handreError: false }
-    handleOpenModal = () => {
-        this.setState({ modalVisible: true })
+
+    handleOpenModal = (media) => {
+        this.setState({ modalVisible: true, media: media })
+    }
+    handleCloseModal = () => {
+        this.setState({ modalVisible: false })
     }
 
     render() {
@@ -18,13 +24,12 @@ class Home extends Component {
             <HandleError>
                 <HomeLayout>
                     <Related />
+                    
                     <Categories categories={this.props.data.categories} handleOpenModal={this.handleOpenModal}/>
                     { this.state.modalVisible && 
                         <ModalContainer>
-                            <Modal
-                                handleClick={this.handleCloseModal}
-                            >
-                                <h1> Desde el modal </h1>
+                            <Modal handleClick={this.handleCloseModal} >
+                                <VideoPlayer autoplay src={ this.state.media.src } title={this.state.media.title}/>
                             </Modal>
                         </ModalContainer>
                     }
